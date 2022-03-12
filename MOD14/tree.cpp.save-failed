@@ -1,0 +1,98 @@
+#include "tree.h"
+
+adr allocation_1301204289(infotype X) {
+    adr P = new node;
+
+    info(P) = X;
+    left(P) = nil;
+    right(P) = nil;
+
+    return P;
+}
+
+adr insertBTS_1301204289(adr &root, adr n) {
+    if (root == nil) {
+        root = n;
+
+    } else {
+        if (info(n) < info(root)) {
+            left(root) = insertBTS_1301204289(left(root), n);
+        } else {
+            right(root) = insertBTS_1301204289(right(root), n);
+        }
+    }
+
+    return root;
+}
+
+void inOrder_1301204289(adr root) {
+    if (root != nil){
+        inOrder_1301204289(left(root));
+
+        cout << info(root) << " ";
+
+        inOrder_1301204289(right(root));
+    }
+}
+
+adr findNode_1301204289(adr root, infotype X) {
+    if (root == nil || info(root) == X) {
+        return root;
+    }
+    else if (X > info(root)) {
+        findNode_1301204289(right(root), X);
+    }
+    else if (X < info(root)) {
+        findNode_1301204289(left(root), X);
+    }
+}
+
+int countInternalNode_1301204289(adr root) {
+    int internalNode = 0;
+
+    if (root != nil && (left(root) != nil || right(root) != nil)) {
+        internalNode = 1 + countInternalNode_1301204289(left(root)) + countInternalNode_1301204289(right(root));
+    }
+
+    return internalNode;
+}
+
+void printLeaves_1301204289(adr root) {
+    if (root != nil) {
+        if (left(root) == nil && right(root) == nil) {
+            cout << info(root) << ' ';
+        } else {
+            if (left(root) != nil) {
+                printLeaves_1301204289(left(root));
+            }
+            if (right(root) != nil) {
+                printLeaves_1301204289(right(root));
+            }
+        }
+    }
+}
+
+int countLeaves_1301204289(adr root) {
+    int leaves = 0;
+
+    if (root != nil) {
+        if (left(root) == nil && right(root) == nil) {
+            leaves = 1;
+        } else {
+            leaves = countLeaves_1301204289(left(root)) + countLeaves_1301204289(right(root));
+        }
+    }
+
+    return leaves;
+}
+
+
+int maxNilai_1301204289(struct node* node) {
+    struct node* current = node;
+
+    while (current->right != nil)
+        current = current->right;
+
+    return (current->info);
+
+}

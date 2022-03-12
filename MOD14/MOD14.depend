@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1641625784 source:c:\users\user\desktop\c++\01-08-2022\mod14\graph.cpp
+	"graph.h"
+
+1641623938 c:\users\user\desktop\c++\01-08-2022\mod14\graph.h
+	<iostream>
+
+1641625494 source:c:\users\user\desktop\c++\01-08-2022\mod14\main.cpp
+	"graph.h"
+	"tree.h"
+
+1641624581 source:c:\users\user\desktop\c++\01-08-2022\mod14\tree.cpp
+	"tree.h"
+
+1641624516 c:\users\user\desktop\c++\01-08-2022\mod14\tree.h
+	<iostream>
+
